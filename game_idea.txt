@@ -1,0 +1,34 @@
+What about a game where you progress in your math skills?
+
+You could set up a class for all the basic operation, and let students
+pick which operation to practice on.  As they progress in the game, you could
+store their progress to a file.  All of the classes could be in separate files,
+to keep code short and readable.  And, since the operations are expandable,
+you can easily make the game modular and add new levels.
+
+/////Brainstorming on Possible Classes///////
+
+class Player(object):
+
+  #  __init__ a new player with a name and a zero score
+
+  # has a method for adding to a player's score, writing their info to a file, 
+    and retrieving the same info
+
+class Problem(object):
+
+  # __init__ a new problem
+
+class LevelOne(Problem):
+
+  # __init__ anew LevelOne (problem) that is-a Problem
+  # adds to the score at a certain amount
+
+class LevelTwo(Problem):
+
+  #same as LevelOne(but with harder numbers, and adds more to the score
+
+class LevelThree(Problem):
+
+  #same as LevelTwo(but with EVEN harder numbers, and adds even MORE to the score)
+ 
