@@ -4,10 +4,10 @@ class Player(object):
     self.name = name
     self.score = 0
 
-def getscore(self):
-  return self.score
+  def getscore(self):
+    return self.score
 
-def setscore(self, points):
-  self.score += points
+  def setscore(self, points):
+    self.score += points
 
 
