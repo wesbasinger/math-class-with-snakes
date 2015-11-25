@@ -27,6 +27,7 @@ def main():
       print "Your current score is %s." % saved_score
     else:
       print "We'll set you up a new user!"
+      prompt_name_lower = Player(prompt_name_lower)
   problem_loop()
 
 def problem_loop():
