@@ -1,19 +1,46 @@
 import os
 
+
 class Player(object):
 
   def __init__ (self, name):
-    self.name = name
-    self.score = 0
-    path = '/Users/teacher/Desktop/LPTHW/Second_Half/class_practice/math_class_with_snakes/logs/'
-    filename = self.name + "log" + ".txt"
+    self.name = name # set player name
+    self.score = 0 # initialize score to zero
+    path = '/Users/teacher/Desktop/LPTHW/Second_Half/class_practice/math_class_with_snakes/logs'
+    filename = self.name + "_log.txt"
     filename = os.path.join(path, filename)
-    self.log = open(filename, "w")
+    f  = open( filename, "w")
+    f.write("0")
+    f.close()
 
   def getscore(self):
-    return self.score
+    path = '/Users/teacher/Desktop/LPTHW/Second_Half/class_practice/math_class_with_snakes/logs'
+    filename = self.name + "_log.txt"
+    filename = os.path.join(path, filename)
+    f = open( filename, "r")
+    print f.read()
+    f.close()
 
   def setscore(self, points):
     self.score += points
-
-
+    path = '/Users/teacher/Desktop/LPTHW/Second_Half/class_practice/math_class_with_snakes/logs'
+    filename = self.name + "_log.txt"
+    filename = os.path.join(path, filename)
+    f = open(filename, "w")
+    f.write(str(self.score))
+    f.close()
+"""
+This doesn't work at all    
+def initial_write(name, score):
+  # first the dictionary file is opened
+  f = open("scores.txt", "r+")
+  #then the dictionary is extracted
+  dc = [] #empty container for the dictionary
+  with f as inf:
+    for line in inf:
+      dc.append(eval(line))
+  wd = dc[0]
+  wd[name] = score
+  print wd
+  f.close()
+"""
