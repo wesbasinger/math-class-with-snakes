@@ -25,12 +25,13 @@ def main():
       prompt_name_lower = Player(prompt_name_lower)
       prompt_name_lower.setscore(saved_score)
       print "Your current score is %s." % saved_score
+      problem_loop(prompt_name_lower)
     else:
       print "We'll set you up a new user!"
       prompt_name_lower = Player(prompt_name_lower)
-  problem_loop()
+      problem_loop(prompt_name_lower)
 
-def problem_loop():
+def problem_loop(prompt_name_lower):
 
   prompt_level = int(input("Pick your level 1 2 3 >>>"))
   prompt_operation = int(input("Pick your operation (1)add (2)subtract (3)multiply >>>"))
@@ -47,7 +48,13 @@ def problem_loop():
   else:
     print prompt_level
     print prompt_operation
-
+  print "\n"
+  prompt_answer = int(input("ANSWER >>> "))
+  if prompt_answer == cur_prob.answerproblem():
+    print "You got it!  100 points!"
+    prompt_name_lower.setscore(100)
+  else:
+    print "Better luck next time!"
 # Standard boilerplate to call the main() function.
 if __name__ == '__main__':
   main()
