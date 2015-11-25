@@ -17,11 +17,11 @@ class Problem(object):
       return "Not a valid operation."
 
   def printproblem(self):
-    if self.operation == "add":
+    if self.operation == 1:
       print "%s + %s" % (self.first_num, self.second_num)
-    elif self.operation == "subtract":  
+    elif self.operation == 2:  
       print "%s - %s" % (self.first_num, self.second_num)
-    elif self.operation == "multiply":
+    elif self.operation == 3:
       print "%s x %s" % (self.first_num, self.second_num)
     else:
       print "Not a valid operation,"

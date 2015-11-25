@@ -1,6 +1,9 @@
 import os
 from Player import Player
 from LevelOne import LevelOne
+from LevelTwo import LevelTwo
+from LevelThree import LevelThree
+
 
 def find(name, path):
   for root, dirs, files in os.walk(path):
@@ -19,11 +22,8 @@ def main():
       f = open('/Users/teacher/Desktop/LPTHW/Second_Half/class_practice/math_class_with_snakes/logs/' + prompt_name_lower + "_log.bin", "rb")
       saved_score = int(f.read())
       f.close()
-      # print saved_score
       prompt_name_lower = Player(prompt_name_lower)
-      #print prompt_name_lower
       prompt_name_lower.setscore(saved_score)
-      #print "DEBUG: " + str(prompt_name_lower.getscore())
       print "Your current score is %s." % saved_score
     else:
       print "We'll set you up a new user!"
@@ -31,8 +31,8 @@ def main():
 
 def problem_loop():
 
-  prompt_level = int(input("Pick your level 1 2 3 "))
-  prompt_operation = int(input("Pick your operation 1:add 2:subtract 3:multiply "))
+  prompt_level = int(input("Pick your level 1 2 3 >>>"))
+  prompt_operation = int(input("Pick your operation (1)add (2)subtract (3)multiply >>>"))
   
   if prompt_level == 1:
     cur_prob = LevelOne(prompt_operation)
