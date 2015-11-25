@@ -17,23 +17,23 @@ def main():
   prompt_name = raw_input(str("What is your name? "))
   prompt_name_lower = prompt_name.lower()
   for root, dirs, files in os.walk('/Users/teacher/Desktop/LPTHW/Second_Half/class_practice/math_class_with_snakes/logs'):
-    print files
     if (prompt_name_lower + "_log.bin") in files:
-      print "Hello, %s, welcome back - you are logged in!" % prompt_name_lower.capitalize()
+      print "Hello, %s, welcome back - you are logged in!\n" % prompt_name_lower.capitalize()
       f = open('/Users/teacher/Desktop/LPTHW/Second_Half/class_practice/math_class_with_snakes/logs/' + prompt_name_lower + "_log.bin", "rb")
       saved_score = int(f.read())
       f.close()
       prompt_name_lower = Player(prompt_name_lower)
       prompt_name_lower.setscore(saved_score)
-      print "Your current score is %s." % saved_score
+      print "Your current score is %s.\n" % saved_score
       problem_loop(prompt_name_lower)
     else:
-      print "We'll set you up a new user!"
+      print "We'll set you up a new user!\n"
       prompt_name_lower = Player(prompt_name_lower)
     while True:
-      print "'any key' for new problem 'q' for quit"
+      print "'any key' for new problem 'q' for quit\n"
       choice = str(raw_input())
       if choice == "q":
+        #print "Bye, your score is %s" % prompt_name_lower.getscore()
         sys.exit(0)
       else:
         problem_loop(prompt_name_lower)
