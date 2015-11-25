@@ -7,14 +7,14 @@ class Problem(object):
     self.second_num = random.randint(bottom_range, top_range)
   
   def answerproblem(self):
-    if self.operation == "add":
+    if self.operation == 1:
       return self.first_num + self.second_num
-    elif self.operation == "subtract":  
+    elif self.operation == 2:  
       return self.first_num - self.second_num
-    elif self.operation == "multiply":
+    elif self.operation == 3:
       return self.first_num * self.second_num
     else:
-      return self.first_num / self.second_num
+      return "Not a valid operation."
 
   def printproblem(self):
     if self.operation == "add":
@@ -24,4 +24,4 @@ class Problem(object):
     elif self.operation == "multiply":
       print "%s x %s" % (self.first_num, self.second_num)
     else:
-      print "%s / %s" % (self.first_num, self.second_num)
+      print "Not a valid operation,"

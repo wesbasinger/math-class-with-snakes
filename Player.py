@@ -4,7 +4,7 @@ import os
 class Player(object):
 
   def __init__ (self, name):
-    self.name = name # set player name
+    self.name = name.lower() # set player name
     self.score = 0 # initialize score to zero
     path = '/Users/teacher/Desktop/LPTHW/Second_Half/class_practice/math_class_with_snakes/logs'
     filename = self.name + "_log.bin"
