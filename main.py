@@ -1,3 +1,4 @@
+import sys
 import os
 from Player import Player
 from LevelOne import LevelOne
@@ -29,7 +30,14 @@ def main():
     else:
       print "We'll set you up a new user!"
       prompt_name_lower = Player(prompt_name_lower)
-      problem_loop(prompt_name_lower)
+    while True:
+      print "'any key' for new problem 'q' for quit"
+      choice = str(raw_input())
+      if choice == "q":
+        sys.exit(0)
+      else:
+        problem_loop(prompt_name_lower)
+
 
 def problem_loop(prompt_name_lower):
 
@@ -51,8 +59,13 @@ def problem_loop(prompt_name_lower):
   print "\n"
   prompt_answer = int(input("ANSWER >>> "))
   if prompt_answer == cur_prob.answerproblem():
-    print "You got it!  100 points!"
-    prompt_name_lower.setscore(100)
+    print "You got it!"
+    if prompt_level == 1:
+      prompt_name_lower.setscore(100)
+    elif prompt_level == 2:
+      prompt_name_lower.setscore(200)
+    else:
+      prompt_name_lower.setscore(300)
   else:
     print "Better luck next time!"
 # Standard boilerplate to call the main() function.
