@@ -4,15 +4,18 @@ from Player import Player
 from LevelOne import LevelOne
 from LevelTwo import LevelTwo
 from LevelThree import LevelThree
+from Scoreboard import Scoreboard
 
-
+""" # Not sure if I need this
 def find(name, path):
   for root, dirs, files in os.walk(path):
     if name in files:
       return os.path.join(root,name)
-
+"""
 def main():
-
+  print "-----CURRENT SCOREBOARD-----"
+  scoreboard = Scoreboard()
+  scoreboard.importscores()
   #first log the player in or create them if they don't exist
   prompt_name = raw_input(str("What is your name? "))
   prompt_name_lower = prompt_name.lower()
