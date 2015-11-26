@@ -1,6 +1,5 @@
 import os
 
-
 class Player(object):
 
   def __init__ (self, name):
@@ -29,18 +28,3 @@ class Player(object):
     f = open(filename, "wb")
     f.write(str(self.score))
     f.close()
-"""
-This doesn't work at all    
-def initial_write(name, score):
-  # first the dictionary file is opened
-  f = open("scores.txt", "r+")
-  #then the dictionary is extracted
-  dc = [] #empty container for the dictionary
-  with f as inf:
-    for line in inf:
-      dc.append(eval(line))
-  wd = dc[0]
-  wd[name] = score
-  print wd
-  f.close()
-"""

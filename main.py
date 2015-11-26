@@ -6,12 +6,6 @@ from LevelTwo import LevelTwo
 from LevelThree import LevelThree
 from Scoreboard import Scoreboard
 
-""" # Not sure if I need this
-def find(name, path):
-  for root, dirs, files in os.walk(path):
-    if name in files:
-      return os.path.join(root,name)
-"""
 def main():
   print "-----CURRENT SCOREBOARD-----"
   scoreboard = Scoreboard()
@@ -19,6 +13,7 @@ def main():
   #first log the player in or create them if they don't exist
   prompt_name = raw_input(str("What is your name? "))
   prompt_name_lower = prompt_name.lower()
+
   for root, dirs, files in os.walk('/Users/teacher/Desktop/LPTHW/Second_Half/class_practice/math_class_with_snakes/logs'):
     if (prompt_name_lower + "_log.bin") in files:
       print "Hello, %s, welcome back - you are logged in!\n" % prompt_name_lower.capitalize()
@@ -46,7 +41,7 @@ def problem_loop(prompt_name_lower):
 
   prompt_level = int(input("Pick your level 1 2 3 >>>"))
   prompt_operation = int(input("Pick your operation (1)add (2)subtract (3)multiply >>>"))
-  
+
   if prompt_level == 1:
     cur_prob = LevelOne(prompt_operation)
     cur_prob.printproblem()
@@ -57,10 +52,12 @@ def problem_loop(prompt_name_lower):
     cur_prob = LevelThree(prompt_operation)
     cur_prob.printproblem()
   else:
-    print prompt_level
-    print prompt_operation
+    print "Incorrect selection, program will exit."
+    sys.exit(0)
+
   print "\n"
   prompt_answer = int(input("ANSWER >>> "))
+
   if prompt_answer == cur_prob.answerproblem():
     print "You got it!"
     if prompt_level == 1:
@@ -71,8 +68,7 @@ def problem_loop(prompt_name_lower):
       prompt_name_lower.setscore(300)
   else:
     print "Better luck next time!"
+
 # Standard boilerplate to call the main() function.
 if __name__ == '__main__':
   main()
-
-
